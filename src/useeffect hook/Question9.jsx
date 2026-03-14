@@ -10,10 +10,17 @@ const Question9 = () => {
       <h2>{double}</h2>
 
       <br />
+<h2>Number: {num}</h2>
 
+<h2>Double: {double}</h2>
       <button onClick={() => setNum((prev) => prev + 1)}>
         Increase
       </button>
+      <button
+  onClick={() => setNum(prev => prev - 1)}
+>
+  Decrease
+</button>
     </div>
   );
 };
