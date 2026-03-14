@@ -11,7 +11,9 @@ const Question10 = () => {
     <div style={styles.container}>
       <div style={styles.card}>
         <h2>Check Console</h2>
-        <p>Open DevTools to see lifecycle logs</p>
+  <p>
+  Open the browser console to view mount and unmount logs.
+</p>
       </div>
     </div>
   );
