@@ -24,6 +24,7 @@ const Question8 = () => {
 
   return (
     <div style={{ padding: "20px" }}>
+      <h3>Current Color: {color}</h3> <br />
       <button
         style={{ ...buttonStyle, backgroundColor: "green" }}
         onClick={() => setColor("lightgreen")}
