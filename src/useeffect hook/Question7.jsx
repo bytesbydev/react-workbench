@@ -26,6 +26,18 @@ const Question7 = () => {
       <br />
 
       Clicked the button {count} times
+      <button
+  onClick={() => setCount(0)}
+  style={{
+    marginLeft: "10px",
+    padding: "10px",
+    borderRadius: "5px",
+    border: "none",
+    cursor: "pointer"
+  }}
+>
+  Reset
+</button>
     </div>
   );
 };
