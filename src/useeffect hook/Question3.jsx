@@ -6,7 +6,7 @@ const [firstname,setFirstname]=useState("")
 const [lastname,setLastname]=useState("")
 
 useEffect(()=>{
-    if(firstname==="" || lastname==="") return
+  if(firstname === "" || lastname === "") return;
         console.log(firstname,lastname)
 },[firstname,lastname])
   return (
@@ -14,7 +14,10 @@ useEffect(()=>{
 <label htmlFor="name">Enter ur first name: </label> <br />
         <input type="text" name='firstname' onChange={(e)=>setFirstname(e.target.value)} value={firstname} /> <br /> <br />
     <label htmlFor="name">Enter ur last name: </label>     <br />
-        <input type="text" name='lastname'onChange={(e)=>setLastname(e.target.value)} value={lastname} />
+        <input type="text" name='lastname'onChange={(e)=>setLastname(e.target.value)} value={lastname} /> <br />
+        <h3>
+  Full Name: {firstname} {lastname}
+</h3>
     </div>
   )
 }
