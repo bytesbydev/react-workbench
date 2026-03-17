@@ -29,7 +29,7 @@ const Question4 = () => {
         onChange={(e) => setText(e.target.value)}
       />
 
-      <h3>Results:</h3>
+      <p>Total Results: {result.length}</p>
 
       {result.map((value, index) => (
         <p key={index}>{value}</p>
