@@ -6,16 +6,19 @@ const Question1 = () => {
     const[result,setResult]=useState(cities)
 
 useEffect(()=>{
+// eslint-disable-next-line react-hooks/set-state-in-effect
 setResult(cities.filter(city=>city.toLowerCase().includes(text.toLowerCase())))
 },[text])
   return (
-    <div>
+    <div> 
       <label htmlFor="name">Enter the name of the city: </label> <br />
 <input style={{padding:"5px",borderRadius:"15px"}} type="text" name='input' value={text} onChange={(e)=>setText(e.target.value)} />
 <p>
- {result.map((city,index)=>
- <p key={index}>{city}</p>
-)}
+ <h4>Matches: {result.length}</h4>
+
+{result.map((city,index) => (
+  <p key={index}>{city}</p>
+))}
 </p>
     </div>
   )
