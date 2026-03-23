@@ -26,8 +26,9 @@ const Question5 = () => {
         }}
         onClick={() => setDark((prev) => !prev)}
       >
-        Toggle Theme
+       Switch to {dark ? "Light" : "Dark"} Mode
       </button>
+      <p>Theme preference is saved in localStorage.</p>
     </div>
   );
 };
