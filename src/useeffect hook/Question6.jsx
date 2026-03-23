@@ -14,7 +14,10 @@ const Question6 = () => {
   return (
     <div>
       <h1>Timer:</h1>
-      <h2>{time}</h2>
+     <h2>{String(time).padStart(2, "0")} sec</h2>
+     <button onClick={() => setTime(0)}>
+  Reset
+</button>
     </div>
   );
 };
