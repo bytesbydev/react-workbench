@@ -13,13 +13,14 @@ const Question9 = () => {
 
   return (
     <div>
-      <h2>Sum : {result}</h2>
+     <h2>Sum : {result}</h2>
+<p>Total Numbers: {numbers.length}</p>
 
-      <h3>Count : {count}</h3>
+<h3>Count : {count}</h3>
 
-      <button onClick={() => setCount(count + 1)}>
-        Click Me
-      </button>
+<button onClick={() => setCount(prev => prev + 1)}>
+  Click Me
+</button>
     </div>
   );
 };
