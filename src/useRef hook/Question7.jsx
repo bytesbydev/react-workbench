@@ -40,13 +40,26 @@ const Question7 = () => {
           style={styles.input}
         />
 
+<p>Products Found: {filteredProducts.length}</p>
+
         <p style={styles.text}>
           Searching for:
           <span style={styles.highlight}>
             {text || " Nothing"}
           </span>
         </p>
-
+<button
+  onClick={() => setText("")}
+  style={{
+    marginTop: "10px",
+    padding: "8px 12px",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer"
+  }}
+>
+  Clear
+</button>
         <div style={styles.results}>
           {filteredProducts.length ? (
             filteredProducts.map((item) => (
