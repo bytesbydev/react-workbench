@@ -23,6 +23,7 @@ const Question8 = () => {
 
   return (
     <div>
+      <p>Matches: {result.length}</p>
       {result.map((num, index) => (
         <p key={index}>{num}</p>
       ))}
@@ -33,11 +34,12 @@ const Question8 = () => {
 
       <br />
 
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
+   <input
+  type="text"
+  placeholder="Search name..."
+  value={text}
+  onChange={(e) => setText(e.target.value)}
+/>
     </div>
   );
 };
