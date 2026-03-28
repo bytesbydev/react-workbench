@@ -1,21 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 const Question5 = () => {
-
-  const previousValue = useRef("");
+  const [previous, setPrevious] = useState("");
 
   const [current, setCurrent] = useState("");
 
   const changeHandler = (e) => {
-
-    previousValue.current = current;
-
+    setPrevious(current);
     setCurrent(e.target.value);
   };
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial" }}>
-
       <h2>useRef Example</h2>
 
       <input
@@ -34,8 +30,7 @@ const Question5 = () => {
 
       <h3>Current Value : {current}</h3>
 
-      <h3>Previous Value : {previousValue.current}</h3>
-
+      <h3>Previous Value : {previous || "None"}</h3>
     </div>
   );
 };
