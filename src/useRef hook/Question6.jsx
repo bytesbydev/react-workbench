@@ -22,10 +22,14 @@ const Question6 = () => {
 
   return (
     <div>
-      {saved && <p>Saved</p>}
+  {saved && <p>✅ Changes Saved</p>}
 
-      <input type="text" onChange={change} />
-    </div>
+  <input
+    type="text"
+    placeholder="Start typing..."
+    onChange={change}
+  />
+</div>
   );
 };
 
