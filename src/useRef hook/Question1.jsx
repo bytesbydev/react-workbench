@@ -4,7 +4,11 @@ const Question1 = () => {
 const myRef=useRef(null)
   return (
     <div>
-        <input type="text" ref={myRef}  />
+       <input
+  type="text"
+  ref={myRef}
+  placeholder="Enter text..."
+/>
         <button onClick={()=>myRef.current.focus()}>focus </button>
     </div>
   )
