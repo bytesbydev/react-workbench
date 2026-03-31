@@ -90,6 +90,18 @@ const Question9 = () => {
             </span>
           </p>
         </div>
+        <button
+  style={{
+    marginTop: "10px",
+    padding: "8px 12px",
+    border: "none",
+    borderRadius: "8px",
+    cursor: "pointer"
+  }}
+  onClick={() => setSearch("")}
+>
+  Clear
+</button>
       </div>
     </>
   );
