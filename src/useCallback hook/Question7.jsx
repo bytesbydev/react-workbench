@@ -8,11 +8,17 @@ const Question7 = () => {
     setList(prev => prev.filter((_, i) => i !== index));
   }, []);
 
-  const addItem = () => {
-    if (input.trim() === "") return;
-    setList(prev => [...prev, input]);
-    setInput("");
-  };
+const addItem = () => {
+  if (input.trim() === "") return;
+
+  if (list.includes(input)) {
+    alert("Item already exists");
+    return;
+  }
+
+  setList(prev => [...prev, input]);
+  setInput("");
+};
 
   return (
     <>
@@ -90,7 +96,7 @@ const Question7 = () => {
       <div className="container">
         <div className="card">
           <h2>📝 List Manager</h2>
-
+<p>Total Items: {list.length}</p>
           <div className="input-box">
             <input
               placeholder="Add item..."
