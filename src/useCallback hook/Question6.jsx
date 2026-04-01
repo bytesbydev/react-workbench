@@ -7,15 +7,16 @@ const Question6 = () => {
     setList(prev => [...prev, `Item ${prev.length + 1}`]);
   }, []);
 
-  return (
-    <>
-      <button onClick={addItem}>Add</button>
+ return (
+  <>
+    <button onClick={addItem}>Add</button>
 
-      {list.map((item, idx) => (
-        <p key={idx}>{item}</p>
-      ))}
-    </>
-  );
-};
+    <p>Total Items: {list.length}</p>
+
+    {list.map((item, idx) => (
+      <p key={idx}>{item}</p>
+    ))}
+  </>
+);};
 
 export default Question6;
