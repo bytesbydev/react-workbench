@@ -7,7 +7,17 @@ const Question5 = () => {
     setOn(prev => !prev);
   }, []);
 
-  return <button onClick={toggle}>{on ? "ON" : "OFF"}</button>;
+return (
+  <>
+    <h2>Toggle Button</h2>
+
+    <button onClick={toggle}>
+      {on ? "ON" : "OFF"}
+    </button>
+
+    <p>Status: {on ? "Enabled" : "Disabled"}</p>
+  </>
+);
 };
 
 export default Question5;
