@@ -2,9 +2,10 @@ import React, { useState, useCallback } from 'react';
 
 const Question3 = () => {
   const [num, setNum] = useState(1);
+  const [result, setResult] = useState(2);
 
   const multiply = useCallback(() => {
-    console.log(num * 2);
+    setResult(num * 2);
   }, [num]);
 
   return (
@@ -16,6 +17,8 @@ const Question3 = () => {
       <button onClick={multiply}>
         Multiply
       </button>
+
+      <h3>Result: {result}</h3>
     </>
   );
 };
