@@ -7,7 +7,17 @@ const Question4 = () => {
     setText(e.target.value);
   }, []);
 
-  return <input value={text} onChange={handleChange} />;
+return (
+  <>
+    <input
+      value={text}
+      onChange={handleChange}
+      placeholder="Type something..."
+    />
+
+    <p>You typed: {text}</p>
+  </>
+);
 };
 
 export default Question4;
