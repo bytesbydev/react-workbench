@@ -8,6 +8,10 @@ const Question1 = () => {
     setCount(c => c + 1);
   }, []);
 
+  const reset = useCallback(() => {
+    setCount(0);
+  }, []);
+
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Counter App</h1>
@@ -29,8 +33,15 @@ const Question1 = () => {
         Increment
       </button>
 
+      <button
+        style={{ ...styles.button, marginTop: "10px" }}
+        onClick={reset}
+      >
+        Reset
+      </button>
+
       <p style={styles.info}>
-        Using <code>useCallback</code> for the increment function
+        Total Clicks: {count}
       </p>
     </div>
   );
@@ -45,47 +56,24 @@ const styles = {
     minHeight: '100vh',
     backgroundColor: '#f0f2f5',
     fontFamily: 'Arial, sans-serif',
-    padding: '20px',
   },
-  title: {
-    color: '#1a73e8',
-    marginBottom: '30px',
-  },
-  counterContainer: {
-    textAlign: 'center',
-    marginBottom: '30px',
-  },
-  label: {
-    fontSize: '18px',
-    color: '#5f6368',
-    marginBottom: '10px',
-  },
-  count: {
-    fontSize: '80px',
-    fontWeight: 'bold',
-    color: '#202124',
-    lineHeight: '1',
-  },
+  title: { color: '#1a73e8' },
+  counterContainer: { textAlign: 'center' },
+  label: { fontSize: '18px' },
+  count: { fontSize: '80px', fontWeight: 'bold' },
   button: {
     backgroundColor: '#1a73e8',
     color: 'white',
-    padding: '15px 32px',
-    fontSize: '18px',
+    padding: '12px 24px',
     border: 'none',
     borderRadius: '8px',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease',
-    boxShadow: '0 4px 12px rgba(26,115,232,0.3)',
+    cursor: 'pointer'
   },
   buttonHover: {
-    backgroundColor: '#185abc',
-    transform: 'translateY(-2px)',
-    boxShadow: '0 6px 16px rgba(26,115,232,0.4)',
+    backgroundColor: '#185abc'
   },
   info: {
-    marginTop: '40px',
-    color: '#666',
-    fontSize: '14px',
+    marginTop: '20px'
   }
 };
 
