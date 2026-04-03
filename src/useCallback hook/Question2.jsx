@@ -2,20 +2,31 @@ import React, { useState, useCallback } from 'react';
 
 const Child = React.memo(({ onClick }) => {
   console.log("Child Rendered");
-  return <button onClick={onClick}>Click</button>;
+
+  return (
+    <button onClick={onClick}>
+      Child Button
+    </button>
+  );
 });
 
 const Question2 = () => {
   const [count, setCount] = useState(0);
+  const [clicks, setClicks] = useState(0);
 
   const handleClick = useCallback(() => {
-    console.log("Clicked");
+    setClicks(prev => prev + 1);
   }, []);
 
   return (
     <>
       <Child onClick={handleClick} />
-      <button onClick={() => setCount(count + 1)}>Parent {count}</button>
+
+      <p>Child Clicks: {clicks}</p>
+
+      <button onClick={() => setCount(count + 1)}>
+        Parent Count: {count}
+      </button>
     </>
   );
 };
