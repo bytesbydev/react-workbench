@@ -8,18 +8,26 @@ const Question8 = () => {
 
   const [input, setInput] = useState("");
 
-  const addUser = () => {
-    if (input.trim() === "") return;
+const addUser = () => {
+  if (input.trim() === "") return;
 
-    const newUser = {
-      id: Date.now(),
-      name: input
-    };
+  const exists = users.some(
+    user => user.name.toLowerCase() === input.toLowerCase()
+  );
 
-    setUsers(prev => [...prev, newUser]);
-    setInput("");
+  if (exists) {
+    alert("User already exists");
+    return;
+  }
+
+  const newUser = {
+    id: Date.now(),
+    name: input
   };
 
+  setUsers(prev => [...prev, newUser]);
+  setInput("");
+};
   const deleteUser = (id) => {
     setUsers(prev => prev.filter(user => user.id !== id));
   };
@@ -29,6 +37,7 @@ const Question8 = () => {
       <div style={styles.card}>
         <h2 style={styles.heading}>User Manager</h2>
 
+<p>Total Users: {users.length}</p>
         <div style={styles.inputGroup}>
           <input
             style={styles.input}
