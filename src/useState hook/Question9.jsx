@@ -18,19 +18,29 @@ const Question9 = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const addProduct = () => {
-    if (!form.name || !form.price || !form.category) return;
+const addProduct = () => {
+  if (!form.name || !form.price || !form.category) return;
 
-    const newProduct = {
-      id: Date.now(),
-      name: form.name,
-      price: Number(form.price),
-      category: form.category
-    };
+  if (Number(form.price) <= 0) {
+    alert("Price must be greater than 0");
+    return;
+  }
 
-    setProducts(prev => [...prev, newProduct]);
-    setForm({ name: "", price: "", category: "" });
+  const newProduct = {
+    id: Date.now(),
+    name: form.name,
+    price: Number(form.price),
+    category: form.category
   };
+
+  setProducts(prev => [...prev, newProduct]);
+
+  setForm({
+    name: "",
+    price: "",
+    category: ""
+  });
+};
 
   const deleteProduct = (id) => {
     setProducts(prev => prev.filter(p => p.id !== id));
@@ -84,24 +94,28 @@ const Question9 = () => {
         />
 
         {/* List */}
-        <ul style={styles.list}>
-          {filteredProducts.map(product => (
-            <li key={product.id} style={styles.listItem}>
-              <div>
-                <strong>{product.name}</strong>
-                <br />
-                ₹{product.price} • {product.category}
-              </div>
+      <ul style={styles.list}>
+  {filteredProducts.length > 0 ? (
+    filteredProducts.map(product => (
+      <li key={product.id} style={styles.listItem}>
+        <div>
+          <strong>{product.name}</strong>
+          <br />
+          ₹{product.price} • {product.category}
+        </div>
 
-              <button
-                style={styles.deleteBtn}
-                onClick={() => deleteProduct(product.id)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+        <button
+          style={styles.deleteBtn}
+          onClick={() => deleteProduct(product.id)}
+        >
+          Delete
+        </button>
+      </li>
+    ))
+  ) : (
+    <p>No products found.</p>
+  )}
+</ul>
       </div>
     </div>
   );
