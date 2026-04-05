@@ -6,7 +6,7 @@ const Question7 = () => {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2 style={styles.heading}>User Status</h2>
+<h2 style={styles.heading}>Login Status Checker</h2>
 
         <p style={styles.status}>
           The user is{" "}
@@ -20,6 +20,11 @@ const Question7 = () => {
           </span>
         </p>
 
+{logged && (
+  <p style={{ color: "#2ecc71", marginBottom: "15px" }}>
+    Welcome back!
+  </p>
+)}
         <button
           style={{
             ...styles.button,
