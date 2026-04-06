@@ -1,18 +1,68 @@
-# React + Vite
+# 🚀 React Hooks Practice
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A collection of **React Hooks practice questions and solutions** to build strong fundamentals and improve problem-solving skills.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📚 Hooks Covered
 
-## React Compiler
+* useState
+* useEffect
+* useRef
+* useMemo
+* useCallback
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 📂 Project Structure
 
-## Expanding the ESLint configuration
+```
+src/
+ ├── useState/
+ │    ├── Question1.jsx
+ │    ├── Question2.jsx
+ │    ├── ...
+ │    └── Question10.jsx
+ │
+ ├── useEffect/
+ │    ├── Question1.jsx
+ │    ├── ...
+ │
+ ├── useRef/
+ ├── useMemo/
+ └── useCallback/
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 What I’m Learning
+
+* Writing clean and optimized React code
+* Understanding hook behavior and dependencies
+* Avoiding unnecessary re-renders
+* Using functional updates correctly
+
+---
+
+## ⚡ How to Run
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## 🎯 Goal
+
+To master React Hooks and build strong fundamentals for real-world development.
+
+---
+
+## 🔗 GitHub
+
+https://github.com/bytesbydev
+
+---
+
+⭐ Star this repo if you find it useful!
