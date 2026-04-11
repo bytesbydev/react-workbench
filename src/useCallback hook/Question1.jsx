@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState, useCallback } from 'react';
 
 const Question1 = () => {
-  return (
-    <div>Question1</div>
-  )
-}
+  const [count, setCount] = useState(0);
 
-export default Question1
+  const increment = useCallback(() => {
+    setCount(c => c + 1);
+  }, []);
+
+  return <button onClick={increment}>Count: {count}</button>;
+};
+
+export default Question1;
