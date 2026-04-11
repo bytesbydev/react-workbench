@@ -12,8 +12,9 @@ const timer=setTimeout(()=>{
     },[text])
   return (
     <div>
+        <label htmlFor="text">Enter the text to be searched: </label> <br />
         <input type="text" onChange={(e)=>settext(e.target.value)} value={text} /> <br />
-        results: 
+         <h3>Results: </h3>
         {result.map((value,index)=>(
             <p key={index}>{value}</p>
         ))}
