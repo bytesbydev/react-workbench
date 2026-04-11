@@ -11,7 +11,9 @@ useEffect(()=>{
 },[firstname,lastname])
   return (
     <div>
-        <input type="text" name='firstname' onChange={(e)=>setFirstname(e.target.value)} value={firstname} />
+<label htmlFor="name">Enter ur first name: </label> <br />
+        <input type="text" name='firstname' onChange={(e)=>setFirstname(e.target.value)} value={firstname} /> <br /> <br />
+    <label htmlFor="name">Enter ur last name: </label>     <br />
         <input type="text" name='lastname'onChange={(e)=>setLastname(e.target.value)} value={lastname} />
     </div>
   )
