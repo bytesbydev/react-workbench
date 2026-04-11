@@ -10,7 +10,8 @@ setResult(cities.filter(city=>city.toLowerCase().includes(text.toLowerCase())))
 },[text])
   return (
     <div>
-<input type="text" name='input' value={text} onChange={(e)=>setText(e.target.value)} />
+      <label htmlFor="name">Enter the name of the city: </label> <br />
+<input style={{padding:"5px",borderRadius:"15px"}} type="text" name='input' value={text} onChange={(e)=>setText(e.target.value)} />
 <p>
  {result.map((city,index)=>
  <p key={index}>{city}</p>
