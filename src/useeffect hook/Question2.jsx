@@ -14,7 +14,9 @@ const Question2 = () => {
 
   return (
     <div>
-{time==0?"times up":`Time is ${time}`}
+      <h2>
+{time==0?"Times up":`Time is ${time}`}
+</h2>
     </div>
   )
 }
