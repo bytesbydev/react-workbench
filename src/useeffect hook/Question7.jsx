@@ -6,8 +6,10 @@ const Question7 = () => {
         document.title=`Count is ${count}`
     },[count])
   return (
-    <div><button onClick={()=>setCount(count+1)}></button>
-    <br /> Click {count}</div>
+    <div><button style={{padding:"10px",borderRadius:"5px",backgroundColor:"orange"}} onClick={()=>setCount(count+1)}>Click me </button>
+    <br /> <br />
+     Clicked the button {count} times <br />
+     See at the title </div>
   )
 }
 
