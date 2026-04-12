@@ -7,8 +7,8 @@ const Question8 = () => {
     },[color])
   return (
     <div>
-        <button onClick={()=>setColor("lightblue")}>Blue</button> <br />
-        <button onClick={()=>setColor("lightgreen")}>Green</button>
+        <button style={{padding:"10px",borderRadius:"5px",backgroundColor:"green",color:"white",cursor:"pointer"}} onClick={()=>setColor("lightgreen")}>Green</button> <br /> <br />
+        <button style={{padding:"10px",borderRadius:"5px",backgroundColor:"blue",color:"white",cursor:"pointer"}} onClick={()=>setColor("lightblue")}>Blue</button> <br />
     </div>
   )
 }
