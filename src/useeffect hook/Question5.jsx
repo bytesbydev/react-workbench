@@ -14,8 +14,8 @@ localStorage.setItem("theme", dark?"dark":"light")
     },[dark])
   return (
     <div>
-        Toogle {dark?"Light":"Dark"}
-        <button onClick={()=>setDark(!dark)}></button> <br />
+        Toogle {dark?"Light":"Dark"} <br /> <br />
+        <button style={{padding:"4px",borderRadius:"5px",backgroundColor:"orange"}} onClick={()=>setDark(!dark)}>Toogle the theme</button> <br />
 
     </div>
   )
