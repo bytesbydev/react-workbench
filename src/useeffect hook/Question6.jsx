@@ -8,6 +8,7 @@ const Question6 = () => {
     },[])
   return (
     <div>
+      <h1>The coutdown starts here : </h1>
         <h2>{time}</h2>
     </div>
   )
