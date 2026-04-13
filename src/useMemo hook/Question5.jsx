@@ -1,37 +1,113 @@
-import React,{useEffect, useMemo, useRef, useState}from 'react'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
 
 const Question5 = () => {
-  
-  const numbers=[31,43,23,54,36,40,2,33,43,42,32,2,62,]
 
-  const[num,setNum]=useState(numbers)
-  const numRef=useRef(null)
-  const add=()=>{
-    const val=value()
-   setNum(prev=>[...prev,Number(val)])
-    console.log(val)
-  }
-  const value=()=>{
-    const num=numRef.current.value
-    return num
-  }
-  const result=useMemo(()=>{
-    console.log("running")
-return Math.max(...num)
-  },[num])
-  
-  console.log(numbers)
+  const numbers = [31,43,23,54,36,40,2,33,43,42,32,2,62]
 
-  useEffect(()=>{
-    document.titel=`Max is ${result}`
-  },[result])
+  const [num, setNum] = useState(numbers)
+  const numRef = useRef(null)
+
+  const add = () => {
+    const val = numRef.current.value
+
+    if (val === "") return
+
+    setNum(prev => [...prev, Number(val)])
+    numRef.current.value = ""   // clear input
+  }
+
+  const result = useMemo(() => {
+    console.log("calculating max...")
+    return Math.max(...num)
+  }, [num])
+
+  useEffect(() => {
+    document.title = `Max is ${result}`
+  }, [result])
+
   return (
- 
-    <div>
-      <input type="number" onChange={value} ref={numRef} />
-      <button onClick={add}>add a number</button> <br />
-      
-      Result: {result}</div>
+    <>
+      <style>{`
+        .container {
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+          font-family: 'Segoe UI', sans-serif;
+        }
+
+        .card {
+          background: white;
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+          width: 300px;
+          text-align: center;
+        }
+
+        h2 {
+          margin-bottom: 15px;
+          color: #333;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border-radius: 8px;
+          border: 1px solid #ccc;
+          outline: none;
+          margin-bottom: 10px;
+          transition: 0.3s;
+        }
+
+        input:focus {
+          border-color: #ff758c;
+          box-shadow: 0 0 8px rgba(255,117,140,0.5);
+        }
+
+        button {
+          width: 100%;
+          padding: 10px;
+          border: none;
+          border-radius: 8px;
+          background: linear-gradient(135deg, #ff758c, #ff7eb3);
+          color: white;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        button:hover {
+          transform: scale(1.05);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .result {
+          margin-top: 15px;
+          font-size: 18px;
+          font-weight: bold;
+          color: #444;
+        }
+
+        .highlight {
+          color: #ff4d6d;
+        }
+      `}</style>
+
+      <div className="container">
+        <div className="card">
+          <h2>📊 Max Finder</h2>
+
+          <input type="number" ref={numRef} placeholder="Enter number..." />
+          
+          <button onClick={add}>Add Number</button>
+
+          <div className="result">
+            Max: <span className="highlight">{result}</span>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
