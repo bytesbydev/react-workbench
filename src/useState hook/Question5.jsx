@@ -9,12 +9,23 @@ const Question5 = () => {
   const [error, setError] = useState("");
 
   const handleSubmit = () => {
-    if (!name || !age || !city) {
+    if (!name.trim() || !age.trim() || !city.trim()) {
       setError("All fields are required!");
       return;
     }
 
-    const newData = { name, age: Number(age), city };
+    if (Number(age) <= 0) {
+      setError("Age must be greater than 0");
+      return;
+    }
+
+    setError("");
+
+    const newData = {
+      name,
+      age: Number(age),
+      city,
+    };
 
     if (editIndex !== null) {
       const updated = [...details];
@@ -22,17 +33,16 @@ const Question5 = () => {
       setDetails(updated);
       setEditIndex(null);
     } else {
-      setDetails(prev => [...prev, newData]);
+      setDetails((prev) => [...prev, newData]);
     }
 
     setName("");
     setAge("");
     setCity("");
-    setError("");
   };
 
   const handleDelete = (index) => {
-    setDetails(prev => prev.filter((_, i) => i !== index));
+    setDetails((prev) => prev.filter((_, i) => i !== index));
   };
 
   const handleEdit = (index) => {
@@ -52,7 +62,10 @@ const Question5 = () => {
           style={styles.input}
           placeholder="Enter Name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => {
+            setName(e.target.value);
+            setError("");
+          }}
         />
 
         <input
@@ -60,14 +73,20 @@ const Question5 = () => {
           type="number"
           placeholder="Enter Age"
           value={age}
-          onChange={(e) => setAge(e.target.value)}
+          onChange={(e) => {
+            setAge(e.target.value);
+            setError("");
+          }}
         />
 
         <input
           style={styles.input}
           placeholder="Enter City"
           value={city}
-          onChange={(e) => setCity(e.target.value)}
+          onChange={(e) => {
+            setCity(e.target.value);
+            setError("");
+          }}
         />
 
         {error && <p style={styles.error}>{error}</p>}
@@ -112,7 +131,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #89f7fe, #66a6ff)"
+    background: "linear-gradient(135deg, #89f7fe, #66a6ff)",
   },
   card: {
     background: "#fff",
@@ -120,18 +139,19 @@ const styles = {
     borderRadius: "15px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
     width: "340px",
-    textAlign: "center"
+    textAlign: "center",
   },
   heading: {
     marginBottom: "20px",
-    color: "#333"
+    color: "#333",
   },
   input: {
     width: "100%",
     padding: "10px",
     marginBottom: "10px",
     borderRadius: "10px",
-    border: "1px solid #ccc"
+    border: "1px solid #ccc",
+    boxSizing: "border-box",
   },
   button: {
     width: "100%",
@@ -141,16 +161,16 @@ const styles = {
     background: "#3498db",
     color: "#fff",
     cursor: "pointer",
-    marginBottom: "15px"
+    marginBottom: "15px",
   },
   error: {
     color: "red",
     fontSize: "14px",
-    marginBottom: "10px"
+    marginBottom: "10px",
   },
   list: {
     listStyle: "none",
-    padding: 0
+    padding: 0,
   },
   listItem: {
     display: "flex",
@@ -159,7 +179,7 @@ const styles = {
     background: "#f1f1f1",
     padding: "10px",
     borderRadius: "8px",
-    marginBottom: "8px"
+    marginBottom: "8px",
   },
   editBtn: {
     marginRight: "5px",
@@ -168,7 +188,7 @@ const styles = {
     border: "none",
     padding: "5px 8px",
     borderRadius: "6px",
-    cursor: "pointer"
+    cursor: "pointer",
   },
   deleteBtn: {
     background: "#e74c3c",
@@ -176,8 +196,8 @@ const styles = {
     border: "none",
     padding: "5px 8px",
     borderRadius: "6px",
-    cursor: "pointer"
-  }
+    cursor: "pointer",
+  },
 };
 
 export default Question5;
