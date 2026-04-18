@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Question3 = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  const handleClick = () => {
-    setIsOpen(prev => !prev);
-  };
+  const [isOn, setIsOn] = useState(true);
 
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2 style={styles.heading}>Toggle Button</h2>
+        <h2 style={styles.heading}>Toggle Switch</h2>
 
         <button
+          onClick={() => setIsOn(!isOn)}
           style={{
             ...styles.button,
-            backgroundColor: isOpen ? "#2ecc71" : "#e74c3c"
+            backgroundColor: isOn ? "#2ecc71" : "#e74c3c",
           }}
-          onClick={handleClick}
         >
-          {isOpen ? "ON" : "OFF"}
+          {isOn ? "ON" : "OFF"}
         </button>
 
         <p style={styles.status}>
-          Status: <span style={{ color: isOpen ? "green" : "red" }}>
-            {isOpen ? "Active" : "Inactive"}
+          Status:
+          <span
+            style={{
+              color: isOn ? "#2ecc71" : "#e74c3c",
+              fontWeight: "bold",
+              marginLeft: "8px",
+            }}
+          >
+            {isOn ? "Active" : "Inactive"}
           </span>
         </p>
       </div>
@@ -34,38 +37,39 @@ const Question3 = () => {
 
 const styles = {
   container: {
-    height: "100vh",
+    minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #667eea, #764ba2)"
+    background: "linear-gradient(135deg,#667eea,#764ba2)",
+    padding: "20px",
   },
   card: {
     background: "#fff",
-    padding: "40px",
-    borderRadius: "15px",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+    padding: "35px",
+    borderRadius: "20px",
+    width: "100%",
+    maxWidth: "350px",
     textAlign: "center",
-    width: "300px"
+    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
   },
   heading: {
-    marginBottom: "20px",
-    color: "#333"
+    marginBottom: "25px",
+    color: "#333",
   },
   button: {
-    padding: "20px 40px",
-    fontSize: "24px",
-    borderRadius: "50px",
     border: "none",
     color: "#fff",
+    padding: "18px 40px",
+    borderRadius: "50px",
+    fontSize: "22px",
     cursor: "pointer",
-    transition: "0.3s"
+    transition: "all 0.3s ease",
   },
   status: {
     marginTop: "20px",
     fontSize: "18px",
-    color: "#555"
-  }
+  },
 };
 
 export default Question3;
