@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Question2 = () => {
   const [text, setText] = useState("");
@@ -10,13 +10,19 @@ const Question2 = () => {
 
         <input
           style={styles.input}
-          placeholder="Enter the text..."
-          type="text"
+          placeholder="Type something..."
+          value={text}
           onChange={(e) => setText(e.target.value)}
         />
 
-        <p style={styles.output}>
-          The text typed: <span style={styles.highlight}>{text}</span>
+        <div style={styles.previewBox}>
+          <p style={styles.output}>
+            {text || "Your text will appear here..."}
+          </p>
+        </div>
+
+        <p style={styles.counter}>
+          Characters: {text.length}
         </p>
       </div>
     </div>
@@ -25,41 +31,50 @@ const Question2 = () => {
 
 const styles = {
   container: {
-    height: "100vh",
+    minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    background: "linear-gradient(135deg, #74ebd5, #ACB6E5)"
+    background: "linear-gradient(135deg,#74ebd5,#ACB6E5)",
+    padding: "20px",
   },
   card: {
     background: "#fff",
     padding: "30px",
     borderRadius: "15px",
+    width: "100%",
+    maxWidth: "420px",
     boxShadow: "0 8px 20px rgba(0,0,0,0.2)",
-    textAlign: "center",
-    width: "350px"
   },
   heading: {
+    textAlign: "center",
     marginBottom: "20px",
-    color: "#333"
   },
   input: {
-    padding: "12px",
     width: "100%",
+    padding: "12px",
     borderRadius: "10px",
     border: "1px solid #ccc",
-    outline: "none",
     fontSize: "16px",
-    marginBottom: "20px"
+    boxSizing: "border-box",
+  },
+  previewBox: {
+    marginTop: "20px",
+    padding: "15px",
+    background: "#f5f7fa",
+    borderRadius: "10px",
+    minHeight: "60px",
   },
   output: {
+    margin: 0,
     fontSize: "18px",
-    color: "#555"
+    wordBreak: "break-word",
   },
-  highlight: {
-    color: "#e63946",
-    fontWeight: "bold"
-  }
+  counter: {
+    marginTop: "15px",
+    textAlign: "right",
+    color: "#666",
+  },
 };
 
 export default Question2;
