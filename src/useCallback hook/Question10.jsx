@@ -1,11 +1,10 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useMemo } from 'react';
 
 const Question10 = () => {
   const [num, setNum] = useState(0);
 
-  const getSquare = useCallback(() => {
-    return num * num;
-  }, [num]);
+  // useMemo is better here since we are returning a value
+  const square = useMemo(() => num * num, [num]);
 
   return (
     <>
@@ -64,9 +63,9 @@ const Question10 = () => {
       <div className="container">
         <div className="card">
           <h3>Number: <span className="value">{num}</span></h3>
-          <h3>Square: <span className="value">{getSquare()}</span></h3>
+          <h3>Square: <span className="value">{square}</span></h3>
 
-          <button onClick={() => setNum(num + 1)}>
+          <button onClick={() => setNum(prev => prev + 1)}>
             Increment 🚀
           </button>
         </div>
