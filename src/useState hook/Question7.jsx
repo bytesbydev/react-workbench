@@ -10,15 +10,21 @@ const Question7 = () => {
 
         <p style={styles.status}>
           The user is{" "}
-          <span style={{ color: logged ? "#2ecc71" : "#e74c3c", fontWeight: "bold" }}>
-            {logged ? "Logged In" : "Logged Out"}
+          <span
+            style={{
+              ...styles.statusText,
+              color: logged ? "#2ecc71" : "#e74c3c"
+            }}
+          >
+            {logged ? "🟢 Logged In" : "🔴 Logged Out"}
           </span>
         </p>
 
         <button
           style={{
             ...styles.button,
-            backgroundColor: logged ? "#e74c3c" : "#2ecc71"
+            backgroundColor: logged ? "#e74c3c" : "#2ecc71",
+            transform: logged ? "scale(1.05)" : "scale(1)"
           }}
           onClick={() => setLogged(prev => !prev)}
         >
@@ -40,10 +46,11 @@ const styles = {
   card: {
     background: "#fff",
     padding: "30px",
-    borderRadius: "15px",
-    boxShadow: "0 10px 25px rgba(0,0,0,0.2)",
+    borderRadius: "20px",
+    boxShadow: "0 12px 30px rgba(0,0,0,0.25)",
     textAlign: "center",
-    width: "300px"
+    width: "300px",
+    transition: "0.3s"
   },
   heading: {
     marginBottom: "20px",
@@ -51,17 +58,21 @@ const styles = {
   },
   status: {
     fontSize: "18px",
-    marginBottom: "20px",
+    marginBottom: "25px",
     color: "#555"
   },
+  statusText: {
+    fontWeight: "bold",
+    transition: "0.3s"
+  },
   button: {
-    padding: "10px 20px",
-    borderRadius: "10px",
+    padding: "12px 25px",
+    borderRadius: "12px",
     border: "none",
     color: "#fff",
     fontSize: "16px",
     cursor: "pointer",
-    transition: "0.3s"
+    transition: "all 0.3s ease"
   }
 };
 
