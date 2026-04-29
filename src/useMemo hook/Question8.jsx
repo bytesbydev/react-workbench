@@ -14,11 +14,11 @@ const students = [
 
 const Question8 = () => {
 
-  const result = useMemo(() => {
-    return students
-      .filter(item => item.grade > 50)
-      .sort((a, b) => b.grade - a.grade)
-  }, [])
+const result = useMemo(() => {
+  return [...students]
+    .filter(item => item.grade > 50)
+    .sort((a, b) => b.grade - a.grade)
+}, [])
 
   return (
     <>
