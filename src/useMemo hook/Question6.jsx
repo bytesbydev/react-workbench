@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, {  useState } from 'react'
 
 const items = [
   { name: "Laptop", price: 99989 },
@@ -22,11 +22,23 @@ const Question6 = () => {
     setCart(prev => prev.filter((_, i) => i !== index))
   }
 
-  const total = useMemo(() => {
-    let sum = 0
-    cart.forEach(item => sum += item.price)
-    return sum
-  }, [cart])
+ {cart.length > 0 && (
+  <button
+    onClick={() => setCart([])}
+    style={{
+      width: "100%",
+      marginTop: "10px",
+      padding: "8px",
+      border: "none",
+      borderRadius: "6px",
+      background: "#333",
+      color: "white",
+      cursor: "pointer"
+    }}
+  >
+    Clear Cart
+  </button>
+)}
 
   return (
     <div style={{
@@ -108,13 +120,9 @@ const Question6 = () => {
           <p style={{ color: "#999" }}>Cart is empty</p>
         )}
 
-        <h3 style={{
-          marginTop: "10px",
-          textAlign: "center",
-          color: "#333"
-        }}>
-          Total: ₹{total}
-        </h3>
+       <p style={{ textAlign: "center" }}>
+  Items in Cart: <b>{cart.length}</b>
+</p>
 
       </div>
     </div>
