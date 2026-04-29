@@ -8,10 +8,10 @@ const Question7 = () => {
 
   const [text, setText] = useState("")
 
-  const result = useMemo(() => {
-    const values = names.filter(item => item.toLowerCase().includes(text.toLowerCase()))
-    return values
-  }, [text])
+const result = useMemo(() => {
+  const values = names.filter(item => item.toLowerCase().includes(text.toLowerCase()))
+  return values
+}, [text])
 
   const handleClick = (e) => {
     clearTimeout(timeRef.current)
