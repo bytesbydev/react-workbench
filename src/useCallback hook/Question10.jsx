@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 const Question10 = () => {
   const [num, setNum] = useState(0);
 
-  // useMemo is better here since we are returning a value
+  // Memoized calculation
   const square = useMemo(() => num * num, [num]);
 
   return (
@@ -14,39 +14,65 @@ const Question10 = () => {
           display: flex;
           justify-content: center;
           align-items: center;
-          background: linear-gradient(135deg, #1e3c72, #2a5298);
-          font-family: 'Segoe UI', sans-serif;
+          background: linear-gradient(135deg, #141e30, #243b55);
+          font-family: 'Poppins', sans-serif;
         }
 
         .card {
-          background: white;
-          padding: 30px 40px;
-          border-radius: 15px;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+          background: rgba(255, 255, 255, 0.95);
+          padding: 35px 40px;
+          border-radius: 18px;
+          box-shadow: 0 15px 40px rgba(0,0,0,0.3);
           text-align: center;
-          width: 280px;
+          width: 300px;
+          backdrop-filter: blur(10px);
           transition: transform 0.3s ease;
         }
 
         .card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-6px);
         }
 
         h3 {
-          margin: 10px 0;
-          color: #333;
+          margin: 12px 0;
+          color: #222;
+          font-weight: 500;
         }
 
         .value {
-          color: #2a5298;
+          color: #ff7e5f;
           font-weight: bold;
+          font-size: 18px;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          margin-top: 10px;
+          border-radius: 10px;
+          border: 1px solid #ccc;
+          outline: none;
+          font-size: 14px;
+          text-align: center;
+        }
+
+        input:focus {
+          border-color: #ff7e5f;
+          box-shadow: 0 0 8px rgba(255,126,95,0.5);
+        }
+
+        .btn-group {
+          display: flex;
+          gap: 10px;
+          margin-top: 18px;
+          justify-content: center;
         }
 
         button {
-          margin-top: 15px;
-          padding: 10px 20px;
+          flex: 1;
+          padding: 10px;
           border: none;
-          border-radius: 8px;
+          border-radius: 10px;
           background: linear-gradient(135deg, #ff7e5f, #feb47b);
           color: white;
           font-size: 14px;
@@ -56,7 +82,11 @@ const Question10 = () => {
 
         button:hover {
           transform: scale(1.05);
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+        }
+
+        .reset {
+          background: linear-gradient(135deg, #6a11cb, #2575fc);
         }
       `}</style>
 
@@ -65,9 +95,22 @@ const Question10 = () => {
           <h3>Number: <span className="value">{num}</span></h3>
           <h3>Square: <span className="value">{square}</span></h3>
 
-          <button onClick={() => setNum(prev => prev + 1)}>
-            Increment 🚀
-          </button>
+          {/* Input for manual value */}
+          <input
+            type="number"
+            value={num}
+            onChange={(e) => setNum(Number(e.target.value))}
+          />
+
+          <div className="btn-group">
+            <button onClick={() => setNum(prev => prev + 1)}>
+              +1
+            </button>
+
+            <button className="reset" onClick={() => setNum(0)}>
+              Reset
+            </button>
+          </div>
         </div>
       </div>
     </>
