@@ -6,17 +6,26 @@ const Question5 = () => {
   const [num, setNum] = useState(numbers);
   const numRef = useRef(null);
 
-  const add = () => {
-    const val = numRef.current.value;
+const add = () => {
+  const val = numRef.current.value.trim();
 
-    // Prevent empty input
-    if (val.trim() === "") return;
+  if (val === "") {
+    alert("Enter a number");
+    return;
+  }
 
-    setNum((prev) => [...prev, Number(val)]);
+  const number = Number(val);
 
-    // Clear input
-    numRef.current.value = "";
-  };
+  if (isNaN(number)) {
+    alert("Invalid number");
+    return;
+  }
+
+  setNum(prev => [...prev, number]);
+
+  numRef.current.value = "";
+  numRef.current.focus();
+};
 
   // Memoized max calculation
   const result = useMemo(() => {
