@@ -53,7 +53,9 @@ const Question4 = () => {
             outline: "none"
           }}
         />
-
+<p>
+  Results Found: <b>{result.length}</b>
+</p>
         <p style={{ marginTop: "10px", fontSize: "14px" }}>
           Entered: <b>{text || "None"}</b>
         </p>
