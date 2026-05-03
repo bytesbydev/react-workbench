@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
 
-const products = ["laptop","mobile","book","games","bag","watch","lollypop"]
+const products = ["laptop","mobile","book","pen","games","bag","watch","pencil","lollypop"]
 
 const Question4 = () => {
   const [text, setText] = useState("")
