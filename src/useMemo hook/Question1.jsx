@@ -5,18 +5,35 @@ const Question1 = () => {
   const nameRef = useRef(null);
   const marksRef = useRef(null);
 
-  const addStudents = () => {
-    let n = nameRef.current.value.trim();
-    let m = Number(marksRef.current.value);
+const addStudents = () => {
+  const n = nameRef.current.value.trim();
+  const m = Number(marksRef.current.value);
 
-    if (!n || marksRef.current.value === "") return;
+  if (!n || marksRef.current.value === "") {
+    alert("Please enter name and marks");
+    return;
+  }
 
-    setRoom(prev => [...prev, { name: n, marks: m }]);
+  if (m < 0 || m > 100) {
+    alert("Marks must be between 0 and 100");
+    return;
+  }
 
-    nameRef.current.value = "";
-    marksRef.current.value = "";
-    nameRef.current.focus();
-  };
+  const exists = room.some(
+    student => student.name.toLowerCase() === n.toLowerCase()
+  );
+
+  if (exists) {
+    alert("Student already exists");
+    return;
+  }
+
+  setRoom(prev => [...prev, { name: n, marks: m }]);
+
+  nameRef.current.value = "";
+  marksRef.current.value = "";
+  nameRef.current.focus();
+};
 
   const deleteStudent = (index) => {
     setRoom(prev => prev.filter((_, i) => i !== index));
