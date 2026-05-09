@@ -5,10 +5,11 @@ const names = ["anshika","dev","aloo","alia","aaraav","vicku","rohit"]
 const Question3 = () => {
   const [text, setText] = useState("")
 
-  const result = useMemo(() => {
-    console.log("filter")
-    return names.filter((n) => n.toLowerCase().startsWith("a"))
-  }, [])
+const result = useMemo(() => {
+  return names.filter((n) =>
+    n.toLowerCase().includes(text.toLowerCase())
+  )
+}, [text])
 
   return (
     <div style={{
