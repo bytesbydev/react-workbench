@@ -11,7 +11,16 @@ const Question2 = () => {
   }, [numbers]);
 
   const addNumber = () => {
-    if (input === "") return;
+   if (input.trim() === "") return;
+
+const value = Number(input);
+
+if (isNaN(value)) {
+  alert("Enter valid number");
+  return;
+}
+
+setNumbers(prev => [...prev, value]);
     setNumbers(prev => [...prev, Number(input)]);
     setInput("");
   };
