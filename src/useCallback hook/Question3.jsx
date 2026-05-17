@@ -9,8 +9,13 @@ const Question3 = () => {
 
   return (
     <>
-      <button onClick={() => setNum(num + 1)}>Num: {num}</button>
-      <button onClick={multiply}>Multiply</button>
+      <button onClick={() => setNum(prev => prev + 1)}>
+        Num: {num}
+      </button>
+
+      <button onClick={multiply}>
+        Multiply
+      </button>
     </>
   );
 };
