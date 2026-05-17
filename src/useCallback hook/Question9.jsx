@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback } from "react";
 
 const Question9 = () => {
   const [search, setSearch] = useState("");
@@ -10,79 +10,85 @@ const Question9 = () => {
   return (
     <>
       <style>{`
-        .container {
-          height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          font-family: 'Poppins', sans-serif;
+        *{
+          margin:0;
+          padding:0;
+          box-sizing:border-box;
         }
 
-        .search-box {
-          background: rgba(255, 255, 255, 0.95);
-          padding: 30px;
-          border-radius: 16px;
-          box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-          text-align: center;
-          width: 320px;
-          backdrop-filter: blur(10px);
-          transition: transform 0.3s ease;
+        .container{
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#667eea,#764ba2);
+          font-family:Arial, sans-serif;
         }
 
-        .search-box:hover {
-          transform: translateY(-5px);
+        .search-box{
+          width:320px;
+          background:rgba(255,255,255,0.95);
+          padding:30px;
+          border-radius:16px;
+          text-align:center;
+          box-shadow:0 12px 30px rgba(0,0,0,0.2);
+          transition:0.3s ease;
         }
 
-        h2 {
-          margin-bottom: 20px;
-          color: #222;
-          font-weight: 600;
+        .search-box:hover{
+          transform:translateY(-5px);
         }
 
-        input {
-          width: 100%;
-          padding: 12px;
-          border-radius: 10px;
-          border: 1px solid #ddd;
-          outline: none;
-          font-size: 15px;
-          transition: all 0.3s ease;
+        .title{
+          margin-bottom:20px;
+          color:#222;
         }
 
-        input:focus {
-          border-color: #667eea;
-          box-shadow: 0 0 10px rgba(102,126,234,0.5);
+        .input{
+          width:100%;
+          padding:12px;
+          border:1px solid #ccc;
+          border-radius:10px;
+          outline:none;
+          font-size:16px;
+          transition:0.3s ease;
         }
 
-        .result {
-          margin-top: 15px;
-          font-size: 15px;
-          color: #444;
+        .input:focus{
+          border-color:#667eea;
+          box-shadow:0 0 10px rgba(102,126,234,0.5);
         }
 
-        .highlight {
-          color: #667eea;
-          font-weight: bold;
+        .result{
+          margin-top:20px;
+          font-size:16px;
+          color:#444;
+        }
+
+        .highlight{
+          color:#667eea;
+          font-weight:bold;
         }
       `}</style>
 
       <div className="container">
         <div className="search-box">
-          <h2>🔍 Search</h2>
+          <h2 className="title">🔍 Search Box</h2>
 
           <input
+            type="text"
             placeholder="Type something..."
             value={search}
             onChange={handleSearch}
+            className="input"
           />
 
-          <div className="result">
+          <p className="result">
             You typed:{" "}
             <span className="highlight">
               {search || "Nothing yet"}
             </span>
-          </div>
+          </p>
         </div>
       </div>
     </>
