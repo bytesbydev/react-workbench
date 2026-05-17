@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 
 const Question1 = () => {
   const [count, setCount] = useState(0);
+  const [hover, setHover] = useState(false);
 
   const increment = useCallback(() => {
     setCount(c => c + 1);
@@ -10,15 +11,20 @@ const Question1 = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Counter App</h1>
-      
+
       <div style={styles.counterContainer}>
         <p style={styles.label}>Current Count:</p>
         <div style={styles.count}>{count}</div>
       </div>
 
-      <button 
+      <button
         onClick={increment}
-        style={styles.button}
+        onMouseEnter={() => setHover(true)}
+        onMouseLeave={() => setHover(false)}
+        style={{
+          ...styles.button,
+          ...(hover ? styles.buttonHover : {})
+        }}
       >
         Increment
       </button>
@@ -30,7 +36,6 @@ const Question1 = () => {
   );
 };
 
-// Inline styles object
 const styles = {
   container: {
     display: 'flex',
@@ -59,7 +64,6 @@ const styles = {
     fontSize: '80px',
     fontWeight: 'bold',
     color: '#202124',
-    margin: '0',
     lineHeight: '1',
   },
   button: {
@@ -71,12 +75,12 @@ const styles = {
     borderRadius: '8px',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 12px rgba(26, 115, 232, 0.3)',
+    boxShadow: '0 4px 12px rgba(26,115,232,0.3)',
   },
   buttonHover: {
     backgroundColor: '#185abc',
     transform: 'translateY(-2px)',
-    boxShadow: '0 6px 16px rgba(26, 115, 232, 0.4)',
+    boxShadow: '0 6px 16px rgba(26,115,232,0.4)',
   },
   info: {
     marginTop: '40px',
