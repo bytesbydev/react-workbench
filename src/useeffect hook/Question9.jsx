@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Question9 = () => {
   const [num, setNum] = useState(1);
-  const [double, setDouble] = useState(2);
 
-  useEffect(() => {
-    setDouble(num * 2);
-  }, [num]);
+  const double = num * 2;
 
   return (
     <div>
@@ -14,7 +11,7 @@ const Question9 = () => {
 
       <br />
 
-      <button onClick={() => setNum(num + 1)}>
+      <button onClick={() => setNum((prev) => prev + 1)}>
         Increase
       </button>
     </div>
