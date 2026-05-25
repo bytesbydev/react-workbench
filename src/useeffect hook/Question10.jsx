@@ -1,59 +1,41 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 
 const Question10 = () => {
-    useEffect(() => {
-        console.log("Mounted")
-        return () => {
-            console.log("Unmounted")
-        }
-    }, [])
+  useEffect(() => {
+    console.log("Mounted");
 
-    return (
-        <>
-            <style>{`
-                .container {
-                    height: 100vh;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background: linear-gradient(135deg, #667eea, #764ba2);
-                    font-family: Arial, sans-serif;
-                }
+    return () => console.log("Unmounted");
+  }, []);
 
-                .card {
-                    background: rgba(255, 255, 255, 0.1);
-                    backdrop-filter: blur(10px);
-                    padding: 30px 40px;
-                    border-radius: 15px;
-                    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-                    text-align: center;
-                    color: white;
-                    transition: transform 0.3s ease;
-                }
+  return (
+    <div style={styles.container}>
+      <div style={styles.card}>
+        <h2>Check Console</h2>
+        <p>Open DevTools to see lifecycle logs</p>
+      </div>
+    </div>
+  );
+};
 
-                .card:hover {
-                    transform: scale(1.05);
-                }
+const styles = {
+  container: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(135deg, #667eea, #764ba2)",
+    fontFamily: "Arial, sans-serif",
+  },
 
-                h2 {
-                    margin-bottom: 10px;
-                    font-size: 24px;
-                }
+  card: {
+    background: "rgba(255,255,255,0.1)",
+    backdropFilter: "blur(10px)",
+    padding: "30px 40px",
+    borderRadius: "15px",
+    boxShadow: "0 8px 32px rgba(0,0,0,0.2)",
+    textAlign: "center",
+    color: "white",
+  },
+};
 
-                p {
-                    font-size: 14px;
-                    opacity: 0.8;
-                }
-            `}</style>
-
-            <div className="container">
-                <div className="card">
-                    <h2>Check Console</h2>
-                    <p>Open DevTools to see lifecycle logs</p>
-                </div>
-            </div>
-        </>
-    )
-}
-
-export default Question10
+export default Question10;
