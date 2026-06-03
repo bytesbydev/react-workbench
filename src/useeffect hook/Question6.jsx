@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 
 const Question6 = () => {
-    const[time,setTime]=useState(0)
-    useEffect(()=>{
-        const id =setInterval(()=>{setTime(prev=>prev+1)},1000)
-        return ()=>clearInterval(id)
-    },[])
+  const [time, setTime] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTime((prev) => prev + 1);
+    }, 1000);
+
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <div>
-      <h1>The coutdown starts here : </h1>
-        <h2>{time}</h2>
+      <h1>Timer:</h1>
+      <h2>{time}</h2>
     </div>
-  )
-}
+  );
+};
 
-export default Question6
+export default Question6;
