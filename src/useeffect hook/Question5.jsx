@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 const Question5 = () => {
-  const [dark, setDark] = useState(
-    localStorage.getItem("theme") === "dark"
-  );
+  const [dark, setDark] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
   useEffect(() => {
     document.body.style.backgroundColor = dark ? "#111" : "#fff";
@@ -14,10 +14,7 @@ const Question5 = () => {
 
   return (
     <div>
-      Toggle {dark ? "Light" : "Dark"}
-
-      <br />
-      <br />
+      <h2>Theme: {dark ? "Dark" : "Light"}</h2>
 
       <button
         style={{
