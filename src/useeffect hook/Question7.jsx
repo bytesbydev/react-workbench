@@ -4,7 +4,7 @@ const Question7 = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `Count is ${count}`;
+    document.title = `Clicked ${count} times`;
   }, [count]);
 
   return (
@@ -26,8 +26,6 @@ const Question7 = () => {
       <br />
 
       Clicked the button {count} times
-      <br />
-      See the title
     </div>
   );
 };
